@@ -1,42 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-<div id="container"/>
-
-<label>Enter city: 
-  <input type="text" id="textbox" />
-</label>
-<button id="btn">Find weather</button>
+<h1>Joys and Annoyances of Riding</h1>
+<p>Riding motorcycles can be an extrememly rewarding, relaxing and fun experience.</p>
 <a href="https://wozby.github.io/">go back</a>
-</body>
-
-<script src="ajax.js"></script>
-<script src="parse-response.js"></script>
-
-<script>
-var container = document.getElementById('container');
-var url = "http://api.openweathermap.org/data/2.5/weather?q="; 
-var city = "San Bernardino"; 
-var apiKey = "f4c546d32f9cec9fd33d0f02c909b705";
-var newurl = url + city + "&appid=" + apiKey;
-var txt;
-ajax(newurl, function(resp) {
-    resp = parseResponse(resp); 
-    txt = document.createTextNode(resp);
-    container.appendChild(txt); 
-}); 
-
-document.getElementById("btn").onclick = function() { 
-    city = document.getElementById("textbox").value;
-    var nexturl = url + city + "&appid=" + apiKey;
-    txt.parentNode.removeChild(txt);
-    ajax(nexturl, function(resp) {
-        resp = parseResponse(resp);
-        txt = document.createTextNode(resp);
-        container.appendChild(txt); 
-    }); 
-};
-</script>
 </html>
