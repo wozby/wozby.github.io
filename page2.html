@@ -8,18 +8,18 @@
 <label>Enter city: 
   <input type="text" id="textbox" />
 </label>
-<button id="submitButton">Submit</button>
+<button id="btn">Find weather</button>
+<a href="https://wozby.github.io/">go back</a>
+</body>
 
 <script src="ajax.js"></script>
 <script src="parse-response.js"></script>
 
 <script>
-/* global ajax */
-/* global parseResponse */
 var container = document.getElementById('container');
 var url = "http://api.openweathermap.org/data/2.5/weather?q="; 
 var city = "San Bernardino"; 
-var apiKey = "f4c546d32f9cec9fd33d0f02c909b705"; // Replace "APIKEY" with your own API key; otherwise, your HTTP request will not work 
+var apiKey = "f4c546d32f9cec9fd33d0f02c909b705";
 var newurl = url + city + "&appid=" + apiKey;
 var txt;
 ajax(newurl, function(resp) {
@@ -28,7 +28,7 @@ ajax(newurl, function(resp) {
     container.appendChild(txt); 
 }); 
 
-document.getElementById("submitButton").onclick = function() { 
+document.getElementById("btn").onclick = function() { 
     city = document.getElementById("textbox").value;
     var nexturl = url + city + "&appid=" + apiKey;
     txt.parentNode.removeChild(txt);
